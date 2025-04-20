@@ -16,6 +16,8 @@ public class BitcakeManagerInstance {
         switch (snapshotType) {
             case ACHARYA_BADRINATH:
                 instance = new ABBitcakeManager(); break;
+            case ALAGAR_VENKATESAN:
+                instance = new AVBitcakeManager(); break;
             default:
                 throw new IllegalArgumentException("Unsupported snapshot type: " + snapshotType);
         }

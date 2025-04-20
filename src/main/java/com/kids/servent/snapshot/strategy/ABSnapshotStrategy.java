@@ -5,7 +5,7 @@ import com.kids.communication.message.util.CausalBroadcast;
 import com.kids.servent.bitcake.ABBitcakeManager;
 import com.kids.servent.snapshot.ABSnapshot;
 import com.kids.communication.message.Message;
-import com.kids.communication.message.impl.ABSnapshotRequestMessage;
+import com.kids.communication.message.impl.ab.ABSnapshotRequestMessage;
 import com.kids.communication.message.util.MessageUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -52,7 +52,7 @@ public class ABSnapshotStrategy implements SnapshotStrategy {
     }
 
     @Override
-    public void processCollectedData() {
+    public void processSnapshotEnding() {
         int sum = 0;
         int serventCount = AppConfig.getServentCount();
 

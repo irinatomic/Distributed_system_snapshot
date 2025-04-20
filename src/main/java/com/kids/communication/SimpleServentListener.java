@@ -2,7 +2,6 @@ package com.kids.communication;
 
 import com.kids.servent.config.AppConfig;
 import com.kids.servent.Cancellable;
-import com.kids.servent.snapshot.collector.SnapshotCollector;
 import com.kids.communication.handler.MessageHandler;
 import com.kids.communication.handler.impl.CausalBroadcastHandler;
 import com.kids.communication.message.Message;
@@ -30,13 +29,8 @@ public class SimpleServentListener implements Runnable, Cancellable {
 	private final ExecutorService threadPool = Executors.newWorkStealingPool();
 
 	private volatile boolean working = true;
-	private final SnapshotCollector snapshotCollector;
 	private final Set<Message> receivedBroadcasts = Collections.newSetFromMap(new ConcurrentHashMap<>());
 	private final Object lock = new Object();
-
-	public SimpleServentListener(SnapshotCollector snapshotCollector) {
-		this.snapshotCollector = snapshotCollector;
-	}
 	
 	@Override
 	public void run() {

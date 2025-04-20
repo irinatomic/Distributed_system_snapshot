@@ -49,7 +49,7 @@ public class ServentMain {
 		Thread snapshotCollectorThread = new Thread(snapshotCollector);
 		snapshotCollectorThread.start();
 		
-		SimpleServentListener simpleListener = new SimpleServentListener(snapshotCollector);
+		SimpleServentListener simpleListener = new SimpleServentListener();
 		Thread listenerThread = new Thread(simpleListener);
 		listenerThread.start();
 		

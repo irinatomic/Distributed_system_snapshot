@@ -1,4 +1,4 @@
-package com.kids.communication.handler.impl;
+package com.kids.communication.handler.impl.ab;
 
 import com.kids.servent.bitcake.BitcakeManagerInstance;
 import com.kids.servent.config.AppConfig;
@@ -6,7 +6,7 @@ import com.kids.communication.message.util.CausalBroadcast;
 import com.kids.communication.handler.MessageHandler;
 import com.kids.communication.message.Message;
 import com.kids.communication.message.MessageType;
-import com.kids.communication.message.impl.ABSnapshotResponseMessage;
+import com.kids.communication.message.impl.ab.ABSnapshotResponseMessage;
 import com.kids.communication.message.util.MessageUtil;
 import lombok.RequiredArgsConstructor;
 
@@ -36,7 +36,7 @@ public class ABSnapshotRequestHandler implements MessageHandler {
         int currentAmount = BitcakeManagerInstance.getInstance().getCurrentBitcakeAmount();
         Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcast.getVectorClock());
 
-        Message response = new ABSnapshotResponseMessage(
+        return new ABSnapshotResponseMessage(
                 AppConfig.myServentInfo,
                 clientMessage.getOriginalSenderInfo(),
                 null,
@@ -45,6 +45,5 @@ public class ABSnapshotRequestHandler implements MessageHandler {
                 CausalBroadcast.getSent(),
                 CausalBroadcast.getReceived()
         );
-        return response;
     }
 }

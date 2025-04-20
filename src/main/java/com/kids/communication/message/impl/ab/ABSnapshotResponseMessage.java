@@ -1,5 +1,6 @@
-package com.kids.communication.message.impl;
+package com.kids.communication.message.impl.ab;
 
+import com.kids.communication.message.impl.BasicMessage;
 import com.kids.servent.config.AppConfig;
 import com.kids.servent.ServentInfo;
 import com.kids.communication.message.Message;

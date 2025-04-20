@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 /**
  * This class implements the logic for starting multiple servent instances.
- * 
  * To use it, invoke startServentTest with a directory name as parameter.
  * This directory should include:
  * <ul>
@@ -65,8 +64,11 @@ public class MultipleServentStarter {
 		int serventCount = AppConfig.getServentCount();
 		for(int i = 0; i < serventCount; i++) {
 			try {
-				ProcessBuilder builder = new ProcessBuilder("java", "-cp", "build/classes/java/main", "com.kids.starter.ServentMain",
-						testName + "/servent_list.properties", String.valueOf(i));
+				ProcessBuilder builder = new ProcessBuilder(
+						"java", "-cp", "build/classes/java/main", "com.kids.starter.ServentMain",
+						testName + "/servent_list.properties",
+						String.valueOf(i)
+				);
 
 				// We use files to read and write
 				// System.out, System.err and System.in will point to these files
@@ -99,7 +101,7 @@ public class MultipleServentStarter {
 	}
 	
 	public static void main(String[] args) {
-		startServentTest("ab-snapshot-example");
+		// startServentTest("ab-snapshot-example");
+		startServentTest("av-snapshot-example");
 	}
-
 }

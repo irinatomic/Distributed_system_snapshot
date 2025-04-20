@@ -4,5 +4,5 @@ public interface SnapshotStrategy {
 
     void initiateSnapshot();
     boolean isSnapshotComplete();
-    void processCollectedData();
+    void processSnapshotEnding();
 }

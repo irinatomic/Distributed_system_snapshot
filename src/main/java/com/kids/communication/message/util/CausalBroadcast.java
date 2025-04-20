@@ -1,12 +1,16 @@
 package com.kids.communication.message.util;
 
+import com.kids.communication.handler.impl.av.AVDoneHandler;
+import com.kids.communication.handler.impl.av.AVSnapshotRequestHandler;
+import com.kids.communication.handler.impl.av.AVTerminateHandler;
 import com.kids.servent.config.AppConfig;
 import com.kids.servent.snapshot.collector.SnapshotCollector;
-import com.kids.communication.handler.impl.ABSnapshotRequestHandler;
-import com.kids.communication.handler.impl.ABSnapshotResponseHandler;
+import com.kids.communication.handler.impl.ab.ABSnapshotRequestHandler;
+import com.kids.communication.handler.impl.ab.ABSnapshotResponseHandler;
 import com.kids.communication.handler.impl.TransactionHandler;
 import com.kids.communication.message.Message;
 import com.kids.communication.message.impl.BasicMessage;
+import com.kids.servent.snapshot.strategy.SnapshotStrategy;
 import lombok.Getter;
 
 import java.util.*;
@@ -30,7 +34,9 @@ public class CausalBroadcast {
     @Getter private static final Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>();
     private static final Queue<Message> pendingMessages = new ConcurrentLinkedQueue<>();
     private static final Object lock = new Object();
+
     @Getter private static SnapshotCollector snapshotCollector;
+    @Getter private static SnapshotStrategy snapshotStrategy;
 
     // AB Snapshot
     @Getter  private static final List<Message> sent = new CopyOnWriteArrayList<>();
@@ -39,7 +45,6 @@ public class CausalBroadcast {
 
     /**
      * Initializes the vector clock with the given number of servents.
-     *
      * @param serventCount the number of servents in the system.
      */
     public static void initializeVectorClock(int serventCount) {
@@ -51,13 +56,12 @@ public class CausalBroadcast {
     /**
      * Compares two vector clocks.
      * Returns true if any entry in clock2 is greater than the corresponding entry in clock1.
-     *
      * @param clock1 the first vector clock.
      * @param clock2 the second vector clock.
      * @return true if clock2 is greater in any entry, false otherwise.
      * @throws IllegalArgumentException if the clocks are of different sizes.
      */
-    private static boolean otherClockGreater(Map<Integer, Integer> clock1, Map<Integer, Integer> clock2) {
+    public static boolean otherClockGreater(Map<Integer, Integer> clock1, Map<Integer, Integer> clock2) {
         if (clock1.size() != clock2.size()) {
             throw new IllegalArgumentException("Clocks are not same size how why");
         }
@@ -123,6 +127,17 @@ public class CausalBroadcast {
                                 if (basicMessage.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id())
                                     executor.submit(new ABSnapshotResponseHandler(basicMessage, snapshotCollector));
                             }
+                            case AV_SNAPSHOT_REQUEST -> {
+                                executor.submit(new AVSnapshotRequestHandler(basicMessage));
+                            }
+                            case AV_DONE -> {
+                                if (basicMessage.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id()) {
+                                    executor.submit(new AVDoneHandler(basicMessage));
+                                }
+                            }
+                            case AV_TERMINATE -> {
+                                executor.submit(new AVTerminateHandler(basicMessage));
+                            }
                         }
 
                         iterator.remove();
@@ -144,6 +159,7 @@ public class CausalBroadcast {
 
     public static void injectSnapshotCollector(SnapshotCollector snapshotCollector) {
         CausalBroadcast.snapshotCollector = snapshotCollector;
+        CausalBroadcast.snapshotStrategy = snapshotCollector.getSnapshotStrategy();
     }
 
     public static void addPendingMessage(Message msg) {

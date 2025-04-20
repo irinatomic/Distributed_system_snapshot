@@ -59,4 +59,18 @@ public class MessageUtil {
 		Thread delayedSender = new Thread(new DelayedMessageSender(message));
 		delayedSender.start();
 	}
+
+	public static int getAmountFromMessage(Message message) {
+		String amountString = message.getMessageText();
+
+		int amountNumber;
+		try {
+			amountNumber = Integer.parseInt(amountString);
+		} catch (NumberFormatException e) {
+			AppConfig.timestampedErrorPrint("Couldn't parse amount: " + amountString);
+			return -1;
+		}
+
+		return amountNumber;
+	}
 }

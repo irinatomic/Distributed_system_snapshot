@@ -1,12 +1,13 @@
 package com.kids.servent.snapshot.collector;
 
+import com.kids.servent.bitcake.AVBitcakeManager;
 import com.kids.servent.bitcake.BitcakeManagerInstance;
 import com.kids.servent.config.AppConfig;
 import com.kids.servent.bitcake.ABBitcakeManager;
 import com.kids.servent.snapshot.SnapshotType;
 import com.kids.servent.snapshot.strategy.ABSnapshotStrategy;
+import com.kids.servent.snapshot.strategy.AVSnapshotStrategy;
 import com.kids.servent.snapshot.strategy.SnapshotStrategy;
-import lombok.Getter;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -28,6 +29,9 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 		switch(snapshotType) {
 			case ACHARYA_BADRINATH -> this.snapshotStrategy = new ABSnapshotStrategy(
 						(ABBitcakeManager) BitcakeManagerInstance.getInstance()
+			);
+			case ALAGAR_VENKATESAN -> this.snapshotStrategy = new AVSnapshotStrategy(
+						(AVBitcakeManager) BitcakeManagerInstance.getInstance()
 			);
 			case NONE -> this.snapshotStrategy = null;
 		}
@@ -58,7 +62,7 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 				if (!working) return;
 			}
 
-			snapshotStrategy.processCollectedData();
+			snapshotStrategy.processSnapshotEnding();
 			collecting.set(false);
 		}
 	}
