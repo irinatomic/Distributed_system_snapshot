@@ -9,7 +9,7 @@ Each node holds a certain amount of bitcakes and engage in transactions that cha
 - `bitcake_info` – Initiates the global snapshot.
 
 Algorithms:
-1. **Chandy-Lamport** – Marker-based, consistent global snapshot.
+1. **Coordinated Checkpoint** – Custom algorithm
 2. **Acharya-Badrinath** – Lazy evaluation using vector clocks.
 3. **Alagar-Venkatesan** – On-demand snapshot with control messages.
 

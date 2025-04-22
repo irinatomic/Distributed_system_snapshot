@@ -1,5 +1,6 @@
 package com.kids.cli;
 
+import com.kids.communication.message.util.FifoMessageSender;
 import com.kids.servent.config.AppConfig;
 import com.kids.servent.Cancellable;
 import com.kids.servent.snapshot.collector.SnapshotCollector;
@@ -29,14 +30,14 @@ public class CLIParser implements Runnable, Cancellable {
 	private volatile boolean working = true;
 	private final List<CLICommand> commandList;
 	
-	public CLIParser(SimpleServentListener listener, SnapshotCollector snapshotCollector) {
+	public CLIParser(SimpleServentListener listener, SnapshotCollector snapshotCollector, List<FifoMessageSender> senderThreads) {
 		this.commandList = new ArrayList<>();
 		
 		commandList.add(new InfoCommand());
 		commandList.add(new PauseCommand());
 		commandList.add(new TransactionBurstCommand());
 		commandList.add(new BitcakeInfoCommand(snapshotCollector));
-		commandList.add(new StopCommand(this, listener, snapshotCollector));
+		commandList.add(new StopCommand(this, listener, snapshotCollector, senderThreads));
 	}
 	
 	@Override

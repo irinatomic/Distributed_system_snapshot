@@ -1,5 +1,6 @@
 package com.kids.starter;
 
+import com.kids.communication.message.util.FifoMessageSender;
 import com.kids.servent.bitcake.BitcakeManagerInstance;
 import com.kids.servent.config.AppConfig;
 import com.kids.communication.message.util.CausalBroadcast;
@@ -9,6 +10,9 @@ import com.kids.servent.snapshot.SnapshotType;
 import com.kids.cli.CLIParser;
 import com.kids.communication.SimpleServentListener;
 import com.kids.communication.message.util.MessageUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Describes the procedure for starting a single servent
@@ -52,8 +56,18 @@ public class ServentMain {
 		SimpleServentListener simpleListener = new SimpleServentListener();
 		Thread listenerThread = new Thread(simpleListener);
 		listenerThread.start();
+
+		List<FifoMessageSender> senderWorkers = new ArrayList<>();
+		if (AppConfig.IS_FIFO) {
+			for (Integer neighbor : AppConfig.myServentInfo.neighbors()) {
+				FifoMessageSender senderWorker = new FifoMessageSender(neighbor);
+				Thread senderThread = new Thread(senderWorker);
+				senderThread.start();
+				senderWorkers.add(senderWorker);
+			}
+		}
 		
-		CLIParser cliParser = new CLIParser(simpleListener, snapshotCollector);
+		CLIParser cliParser = new CLIParser(simpleListener, snapshotCollector, senderWorkers);
 		Thread cliThread = new Thread(cliParser);
 		cliThread.start();
 	}

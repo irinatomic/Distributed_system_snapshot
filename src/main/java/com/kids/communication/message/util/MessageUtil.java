@@ -1,5 +1,6 @@
 package com.kids.communication.message.util;
 
+import com.kids.communication.message.MessageType;
 import com.kids.servent.config.AppConfig;
 import com.kids.communication.message.Message;
 
@@ -56,8 +57,35 @@ public class MessageUtil {
 	}
 	
 	public static void sendMessage(Message message) {
+		if (AppConfig.IS_FIFO) {
+			sendMessageFifo(message);
+		} else {
+			sendMessageNotFifo(message);
+		}
+	}
+
+	private static void sendMessageNotFifo(Message message) {
 		Thread delayedSender = new Thread(new DelayedMessageSender(message));
 		delayedSender.start();
+	}
+
+	private static void sendMessageFifo(Message message) {
+		int receiverId = message.getOriginalReceiverInfo().id();
+		try {
+			if (isCCSnapshotMessage(message.getMessageType())) {
+				pendingMarkers.get(receiverId).put(message);
+			} else {
+				pendingMessages.get(receiverId).put(message);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static boolean isCCSnapshotMessage(MessageType type) {
+		return type == MessageType.CC_SNAPSHOT_REQUEST
+				|| type == MessageType.CC_ACK
+				|| type == MessageType.CC_RESUME;
 	}
 
 	public static int getAmountFromMessage(Message message) {
