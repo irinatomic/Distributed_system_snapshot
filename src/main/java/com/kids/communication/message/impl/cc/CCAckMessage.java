@@ -15,8 +15,8 @@ public class CCAckMessage extends BasicMessage {
     @Serial
     private static final long serialVersionUID = -4114118932792357339L;
 
-    public CCAckMessage(ServentInfo sender, ServentInfo receiver, int amount) {
-        super(MessageType.CC_ACK, sender, receiver, receiver, String.valueOf(amount), null);
+    public CCAckMessage(ServentInfo sender, ServentInfo targetReceiver, ServentInfo receiver, int amount) {
+        super(MessageType.CC_ACK, sender, targetReceiver, receiver, String.valueOf(amount), null);
     }
 
     public int getAmount() {

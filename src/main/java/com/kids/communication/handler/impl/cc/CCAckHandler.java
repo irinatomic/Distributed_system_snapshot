@@ -4,6 +4,7 @@ import com.kids.communication.handler.MessageHandler;
 import com.kids.communication.message.Message;
 import com.kids.communication.message.impl.cc.CCAckMessage;
 import com.kids.communication.message.util.CausalBroadcast;
+import com.kids.communication.message.util.MessageUtil;
 import com.kids.servent.config.AppConfig;
 import com.kids.servent.snapshot.data.CCSnapshot;
 import com.kids.servent.snapshot.strategy.CCSnapshotStrategy;
@@ -24,15 +25,22 @@ public class CCAckHandler implements MessageHandler {
         CCAckMessage response = (CCAckMessage) clientMessage;
         int originalSenderId = clientMessage.getOriginalSenderInfo().id();
 
-        AppConfig.timestampedStandardPrint("[SNAPSHOT] Got an ACK message from node" + originalSenderId);
-
-        // Create snapshot object from the message
-        CCSnapshot snapshot =  new CCSnapshot(
-                originalSenderId,
-                response.getAmount()
-        );
-
         CCSnapshotStrategy snapshotStrategy = (CCSnapshotStrategy) CausalBroadcast.getSnapshotStrategy();
-        snapshotStrategy.addSnapshot(snapshot);
+
+        // If we are the snapshot initiator store the response
+        // Else, forward the message to all our neighbours
+        if (AppConfig.myServentInfo.id() == snapshotStrategy.getSnapshotInitiatorId()) {
+            AppConfig.timestampedStandardPrint("[SNAPSHOT] Got an ACK message from node" + originalSenderId);
+            CCSnapshot snapshot =  new CCSnapshot(
+                    originalSenderId,
+                    response.getAmount()
+            );
+            snapshotStrategy.addSnapshot(snapshot);
+        } else {
+            AppConfig.myServentInfo.neighbors().stream()
+                    .filter(neighbor -> neighbor != response.getOriginalSenderInfo().id())
+                    .map(response::changeReceiver)
+                    .forEach(MessageUtil::sendMessage);
+        }
     }
 }

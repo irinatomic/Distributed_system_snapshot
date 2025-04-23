@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit;
 public class FifoMessageSender implements Runnable, Cancellable {
 
     private final int neighbour;
-    private final SnapshotStrategy snapshotStrategy = CausalBroadcast.getSnapshotStrategy();
     private volatile boolean working = true;
 
     @Override
@@ -34,19 +33,10 @@ public class FifoMessageSender implements Runnable, Cancellable {
                 // First check for high-priority marker/control messages
                 Message messageToSend = MessageUtil.pendingMarkers.get(neighbour).poll(200, TimeUnit.MILLISECONDS);
 
-                // SnapshotMode = true -> we do not check the regular queue
-//                if (AppConfig.IS_FIFO) {
-//                    CCSnapshotStrategy snapshotStrategy = (CCSnapshotStrategy) this.snapshotStrategy;
-//                    if (snapshotStrategy.inSnapshotMode()) continue;
-//                }
-
-                // SnapshotMode = false -> we check the regular queue
+                // We check the regular queue
                 if (messageToSend == null) {
                     messageToSend = MessageUtil.pendingMessages.get(neighbour).poll(200, TimeUnit.MILLISECONDS);
                 }
-
-                AppConfig.timestampedStandardPrint("FIFO [" + neighbour + "] - markers: " + MessageUtil.pendingMarkers.get(neighbour).size());
-                AppConfig.timestampedStandardPrint("FIFO [" + neighbour + "] - messag: " + MessageUtil.pendingMessages.get(neighbour).size());
 
                 if (messageToSend == null) continue;
                 if (messageToSend.getMessageType() == MessageType.POISON) break;
@@ -57,17 +47,15 @@ public class FifoMessageSender implements Runnable, Cancellable {
 
                 ServentInfo receiverInfo = messageToSend.getReceiverInfo();
 
-                AppConfig.timestampedStandardPrint("FIFO [" + neighbour + "] - sending message to " + receiverInfo);
-
                 try {
                     Socket sendSocket = new Socket(receiverInfo.ipAddress(), receiverInfo.listenerPort());
                     ObjectOutputStream oos = new ObjectOutputStream(sendSocket.getOutputStream());
-                    ObjectInputStream ois = new ObjectInputStream(sendSocket.getInputStream());
 
                     oos.writeObject(messageToSend);
                     oos.flush();
                     messageToSend.sendEffect();
 
+                    ObjectInputStream ois = new ObjectInputStream(sendSocket.getInputStream());
                     Object ack = ois.readObject();
                     if (!"ACK".equals(ack)) {
                         AppConfig.timestampedErrorPrint("Did not receive ACK from " + receiverInfo);

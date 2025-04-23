@@ -7,6 +7,7 @@ import com.kids.communication.message.util.MessageUtil;
 import com.kids.servent.bitcake.CCBitcakeManager;
 import com.kids.servent.config.AppConfig;
 import com.kids.servent.snapshot.data.CCSnapshot;
+import lombok.Getter;
 
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
@@ -18,6 +19,8 @@ public class CCSnapshotStrategy implements SnapshotStrategy {
     private final AtomicBoolean snapshotMode = new AtomicBoolean(false);
     private final Map<Integer, CCSnapshot> collectedData = new ConcurrentHashMap<>();
     private final CCBitcakeManager bitcakeManager;
+    @Getter
+    private Integer snapshotInitiatorId = null;
 
     public CCSnapshotStrategy(CCBitcakeManager bitcakeManager) {
         this.bitcakeManager = bitcakeManager;
@@ -25,13 +28,10 @@ public class CCSnapshotStrategy implements SnapshotStrategy {
 
     @Override
     public void initiateSnapshot() {
-        AppConfig.timestampedStandardPrint("2");
         if (inSnapshotMode()) {
             AppConfig.timestampedStandardPrint("[SNAPSHOT] Already in snapshot mode");
         }
-        startSnapshotMode();
-
-        AppConfig.timestampedStandardPrint("3");
+        startSnapshotModeInitiator();
 
         // Send SNAPSHOT_REQUEST message to all neighbours
         for (Integer neighbor : AppConfig.myServentInfo.neighbors()) {
@@ -44,8 +44,6 @@ public class CCSnapshotStrategy implements SnapshotStrategy {
             MessageUtil.sendMessage(neighborRequest);
         }
 
-        AppConfig.timestampedStandardPrint("4");
-
         // Save the current state
         CCSnapshot snapshotResult = new CCSnapshot(
                 AppConfig.myServentInfo.id(),
@@ -56,29 +54,23 @@ public class CCSnapshotStrategy implements SnapshotStrategy {
 
     @Override
     public boolean isSnapshotComplete() {
-        return inSnapshotMode() && collectedData.size() == AppConfig.getServentCount();
+        return collectedData.size() == AppConfig.getServentCount();
     }
 
     @Override
     public void processSnapshotEnding() {
         AppConfig.timestampedStandardPrint("[SNAPSHOT] Received ACK from all nodes. Ending snapshot.");
 
-        broadcastResumeMessage();
-        printCollectedData();
-        endSnapshotMode();
-    }
+        // Broadcast RESUME messages
+        for (Integer neighbour : AppConfig.myServentInfo.neighbors()) {
+            Message resumeMessage = new CCResumeMessage(
+                    AppConfig.myServentInfo,
+                    AppConfig.getInfoById(neighbour)
+            );
+            MessageUtil.sendMessage(resumeMessage);
+        }
 
-    private void broadcastResumeMessage() {
-        Message resumeMessage = new CCResumeMessage(
-                AppConfig.myServentInfo,
-                null
-        );
-        AppConfig.myServentInfo.neighbors().stream()
-                .map(resumeMessage::changeReceiver)
-                .forEach(MessageUtil::sendMessage);
-    }
-
-    private void printCollectedData() {
+        // Print collected data
         int sum = 0;
         for (Map.Entry<Integer, CCSnapshot> entry : collectedData.entrySet()) {
             CCSnapshot snapshot = entry.getValue();
@@ -86,36 +78,47 @@ public class CCSnapshotStrategy implements SnapshotStrategy {
             AppConfig.timestampedStandardPrint("[SNAPSHOT] Node" + snapshot.getServentId() + ": " + snapshot.getAmount() + " bitcakes");
         }
         AppConfig.timestampedStandardPrint("[SNAPSHOT] Total: " + sum + " bitcakes");
+
+        endSnapshotMode();
     }
 
-    public void addSnapshot(CCSnapshot snapshot) {
-        if (inSnapshotMode()) {
-            collectedData.put(snapshot.getServentId(), snapshot);
-        } else {
-            AppConfig.timestampedStandardPrint("[SNAPSHOT] Not in snapshot mode, ignoring snapshot from node" + snapshot.getServentId());
-        }
+    private void startSnapshotModeInitiator() {
+        snapshotMode.set(true);
+        snapshotInitiatorId = AppConfig.myServentInfo.id();
     }
 
-    public boolean inSnapshotMode() {
-        return snapshotMode.get();
+    public void startSnapshotModeNonInitiator() {
+        snapshotMode.set(true);
     }
 
-    public void startSnapshotMode() {
-        snapshotMode.set(false);
-    }
-
+    /**
+     * Called by initiator and non-initiator
+     */
     public void endSnapshotMode() {
         snapshotMode.set(false);
+        snapshotInitiatorId = null;
+        collectedData.clear();
 
-        // Process any pending transactions
+        processPendingTransactions();
+    }
+
+    private void processPendingTransactions() {
         for (Map.Entry<Integer, BlockingQueue<Message>> entry : MessageUtil.pendingMessages.entrySet()) {
             BlockingQueue<Message> queue = entry.getValue();
             while (!queue.isEmpty()) {
                 Message message = queue.poll();
                 if (message != null) {
-                   MessageUtil.sendMessage(message);
+                    MessageUtil.sendMessage(message);
                 }
             }
         }
+    }
+
+    public void addSnapshot(CCSnapshot snapshot) {
+        collectedData.put(snapshot.getServentId(), snapshot);
+    }
+
+    public boolean inSnapshotMode() {
+        return snapshotMode.get();
     }
 }

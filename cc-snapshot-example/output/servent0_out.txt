@@ -1,106 +1,377 @@
-12:28:59 - Starting servent [0|localhost|1100]
-12:28:59 - Pausing for 1000 ms
-12:28:59 - Waiting for node 0 on port 1100
-12:28:59 - HERE 
-12:28:59 - OIS: java.io.ObjectInputStream@67397ca9
-12:28:59 - FIFO [1] - markers: 0
-12:28:59 - FIFO [1] - messag: 0
-12:28:59 - FIFO [2] - markers: 0
-12:28:59 - FIFO [3] - markers: 0
-12:28:59 - FIFO [2] - messag: 0
-12:28:59 - FIFO [3] - messag: 0
-12:29:00 - FIFO [2] - markers: 0
-12:29:00 - FIFO [1] - markers: 0
-12:29:00 - FIFO [2] - messag: 0
-12:29:00 - FIFO [1] - messag: 0
-12:29:00 - FIFO [3] - markers: 0
-12:29:00 - FIFO [3] - messag: 0
-12:29:00 - Pausing for 10000 ms
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - FIFO [1] - markers: 0
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - FIFO [2] - markers: 0
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - FIFO [3] - markers: 0
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - FIFO [1] - messag: 4
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - FIFO [2] - messag: 4
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - FIFO [3] - messag: 4
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 1
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 2
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - ADDING MESSAG: TRANSACTION -> 3
-12:29:00 - Sending message [Original Sender: 0|Message ID: 0|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
-12:29:00 - Sending message [Original Sender: 0|Message ID: 6|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
-12:29:00 - Sending message [Original Sender: 0|Message ID: 11|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
-12:29:00 - FIFO [1] - sending message to [1|localhost|1200]
-12:29:00 - FIFO [2] - sending message to [2|localhost|1300]
-12:29:00 - FIFO [3] - sending message to [3|localhost|1400]
-12:29:10 - Pausing for 5000 ms
+15:41:30 - Starting servent [0|localhost|1100]
+15:41:30 - Pausing for 1000 ms
+15:41:31 - Got message [Original Sender: 1|Message ID: 0|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:31 - Received message: [Original Sender: 1|Message ID: 0|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:31 - Got message [Original Sender: 1|Message ID: 1|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:31 - Received message: [Original Sender: 1|Message ID: 1|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:31 - Got message [Original Sender: 1|Message ID: 4|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:31 - Received message: [Original Sender: 1|Message ID: 4|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:31 - Got message [Original Sender: 1|Message ID: 5|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:31 - Received message: [Original Sender: 1|Message ID: 5|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:31 - Pausing for 10000 ms
+15:41:31 - Sending message [Original Sender: 0|Message ID: 1|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:31 - Sending message [Original Sender: 0|Message ID: 5|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:31 - Sending message [Original Sender: 0|Message ID: 4|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:32 - Got message [Original Sender: 1|Message ID: 8|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Received message: [Original Sender: 1|Message ID: 8|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 2|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 7|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 8|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:32 - Got message [Original Sender: 1|Message ID: 10|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Received message: [Original Sender: 1|Message ID: 10|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 3|Content: 5|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 11|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 10|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:32 - Got message [Original Sender: 1|Message ID: 11|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Received message: [Original Sender: 1|Message ID: 11|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 6|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 17|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 13|Content: 5|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:32 - Got message [Original Sender: 1|Message ID: 13|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Received message: [Original Sender: 1|Message ID: 13|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 9|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 19|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:32 - Sending message [Original Sender: 0|Message ID: 14|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:32 - Got message [Original Sender: 1|Message ID: 16|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:32 - Received message: [Original Sender: 1|Message ID: 16|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 0|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:33 - Got message [Original Sender: 2|Message ID: 0|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 2|Message ID: 0|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 18|Content: 5|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 16|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:33 - Got message [Original Sender: 1|Message ID: 18|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 1|Message ID: 18|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 12|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:33 - Got message [Original Sender: 2|Message ID: 1|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 2|Message ID: 1|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 20|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 21|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:33 - Got message [Original Sender: 1|Message ID: 20|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 1|Message ID: 20|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 15|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:33 - Got message [Original Sender: 2|Message ID: 2|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 2|Message ID: 2|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 25|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 24|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:33 - Got message [Original Sender: 1|Message ID: 22|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 1|Message ID: 22|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 22|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:33 - Got message [Original Sender: 2|Message ID: 3|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 2|Message ID: 3|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 29|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 26|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:33 - Got message [Original Sender: 1|Message ID: 24|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 1|Message ID: 24|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 23|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:33 - Got message [Original Sender: 2|Message ID: 4|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 2|Message ID: 4|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 32|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:33 - Sending message [Original Sender: 0|Message ID: 30|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:33 - Got message [Original Sender: 1|Message ID: 26|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:33 - Received message: [Original Sender: 1|Message ID: 26|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Got message [Original Sender: 3|Message ID: 2|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 3|Message ID: 2|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 28|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:34 - Got message [Original Sender: 2|Message ID: 5|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 2|Message ID: 5|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 34|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 37|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:34 - Got message [Original Sender: 1|Message ID: 28|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 1|Message ID: 28|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Got message [Original Sender: 3|Message ID: 1|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 3|Message ID: 1|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 27|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:34 - Got message [Original Sender: 2|Message ID: 6|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 2|Message ID: 6|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 40|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 33|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:34 - Got message [Original Sender: 1|Message ID: 30|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 1|Message ID: 30|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Got message [Original Sender: 3|Message ID: 6|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 3|Message ID: 6|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 31|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:34 - Got message [Original Sender: 2|Message ID: 7|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 2|Message ID: 7|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 36|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 42|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:34 - Got message [Original Sender: 1|Message ID: 32|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 1|Message ID: 32|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Got message [Original Sender: 3|Message ID: 7|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 3|Message ID: 7|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 35|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:34 - Got message [Original Sender: 2|Message ID: 8|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 2|Message ID: 8|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 39|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 38|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:34 - Got message [Original Sender: 1|Message ID: 34|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 1|Message ID: 34|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Got message [Original Sender: 3|Message ID: 10|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 3|Message ID: 10|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 41|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:34 - Got message [Original Sender: 2|Message ID: 9|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 2|Message ID: 9|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 45|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:34 - Sending message [Original Sender: 0|Message ID: 44|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:34 - Got message [Original Sender: 1|Message ID: 36|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:34 - Received message: [Original Sender: 1|Message ID: 36|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Got message [Original Sender: 3|Message ID: 11|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 3|Message ID: 11|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 43|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:35 - Got message [Original Sender: 2|Message ID: 10|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 2|Message ID: 10|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 48|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 46|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:35 - Got message [Original Sender: 1|Message ID: 37|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 1|Message ID: 37|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Got message [Original Sender: 3|Message ID: 14|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 3|Message ID: 14|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 49|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:35 - Got message [Original Sender: 2|Message ID: 11|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 2|Message ID: 11|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 53|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 51|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:35 - Got message [Original Sender: 1|Message ID: 40|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 1|Message ID: 40|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Got message [Original Sender: 3|Message ID: 15|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 3|Message ID: 15|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 50|Content: 5|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:35 - Got message [Original Sender: 2|Message ID: 12|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 2|Message ID: 12|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 54|Content: 5|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 52|Content: 5|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:35 - Got message [Original Sender: 1|Message ID: 42|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 1|Message ID: 42|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Got message [Original Sender: 3|Message ID: 18|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 3|Message ID: 18|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 47|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:35 - Got message [Original Sender: 2|Message ID: 13|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 2|Message ID: 13|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 58|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 56|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:35 - Got message [Original Sender: 1|Message ID: 43|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 1|Message ID: 43|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Got message [Original Sender: 3|Message ID: 19|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 3|Message ID: 19|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 55|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:35 - Got message [Original Sender: 2|Message ID: 14|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Received message: [Original Sender: 2|Message ID: 14|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:35 - Sending message [Original Sender: 0|Message ID: 59|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 57|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:36 - Got message [Original Sender: 1|Message ID: 46|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 1|Message ID: 46|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Got message [Original Sender: 3|Message ID: 3|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 3|Message ID: 3|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 60|Content: 5|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 62|Content: 5|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:36 - Got message [Original Sender: 2|Message ID: 15|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 2|Message ID: 15|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 61|Content: 5|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:36 - Got message [Original Sender: 1|Message ID: 48|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 1|Message ID: 48|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Got message [Original Sender: 3|Message ID: 0|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 3|Message ID: 0|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 63|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 65|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:36 - Got message [Original Sender: 2|Message ID: 16|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 2|Message ID: 16|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 64|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:36 - Got message [Original Sender: 3|Message ID: 23|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 3|Message ID: 23|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 66|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 70|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 68|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:36 - Got message [Original Sender: 2|Message ID: 17|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 2|Message ID: 17|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Got message [Original Sender: 3|Message ID: 26|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 3|Message ID: 26|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 67|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 69|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:36 - Sending message [Original Sender: 0|Message ID: 71|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:36 - Got message [Original Sender: 2|Message ID: 18|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 2|Message ID: 18|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Got message [Original Sender: 3|Message ID: 27|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:36 - Received message: [Original Sender: 3|Message ID: 27|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Sending message [Original Sender: 0|Message ID: 72|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:41:37 - Sending message [Original Sender: 0|Message ID: 73|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:41:37 - Sending message [Original Sender: 0|Message ID: 74|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:41:37 - Got message [Original Sender: 2|Message ID: 19|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 2|Message ID: 19|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Got message [Original Sender: 3|Message ID: 30|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 3|Message ID: 30|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Got message [Original Sender: 2|Message ID: 20|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 2|Message ID: 20|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Got message [Original Sender: 3|Message ID: 31|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 3|Message ID: 31|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Got message [Original Sender: 2|Message ID: 21|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 2|Message ID: 21|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Got message [Original Sender: 3|Message ID: 34|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 3|Message ID: 34|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Got message [Original Sender: 2|Message ID: 22|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 2|Message ID: 22|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Got message [Original Sender: 3|Message ID: 35|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 3|Message ID: 35|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Got message [Original Sender: 2|Message ID: 23|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:37 - Received message: [Original Sender: 2|Message ID: 23|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Got message [Original Sender: 3|Message ID: 38|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Received message: [Original Sender: 3|Message ID: 38|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Got message [Original Sender: 2|Message ID: 24|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Received message: [Original Sender: 2|Message ID: 24|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Got message [Original Sender: 3|Message ID: 40|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Received message: [Original Sender: 3|Message ID: 40|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Got message [Original Sender: 3|Message ID: 42|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Received message: [Original Sender: 3|Message ID: 42|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Got message [Original Sender: 3|Message ID: 44|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Received message: [Original Sender: 3|Message ID: 44|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Got message [Original Sender: 3|Message ID: 46|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:38 - Received message: [Original Sender: 3|Message ID: 46|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:39 - Got message [Original Sender: 3|Message ID: 48|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:39 - Received message: [Original Sender: 3|Message ID: 48|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:41:41 - START BITCAKE INFO
+15:41:41 - Pausing for 4000 ms
+15:41:41 - Adding message to pending markers: [Original Sender: 0|Message ID: 75|Content: 0|Type: CC_SNAPSHOT_REQUEST|Receiver: 1|Original Receiver: 1]
+15:41:41 - Adding message to pending markers: [Original Sender: 0|Message ID: 76|Content: 0|Type: CC_SNAPSHOT_REQUEST|Receiver: 2|Original Receiver: 2]
+15:41:41 - Sending message [Original Sender: 0|Message ID: 75|Content: 0|Type: CC_SNAPSHOT_REQUEST|Receiver: 1|Original Receiver: 1]
+15:41:41 - Adding message to pending markers: [Original Sender: 0|Message ID: 77|Content: 0|Type: CC_SNAPSHOT_REQUEST|Receiver: 3|Original Receiver: 3]
+15:41:41 - Sending message [Original Sender: 0|Message ID: 76|Content: 0|Type: CC_SNAPSHOT_REQUEST|Receiver: 2|Original Receiver: 2]
+15:41:41 - Sending message [Original Sender: 0|Message ID: 77|Content: 0|Type: CC_SNAPSHOT_REQUEST|Receiver: 3|Original Receiver: 3]
+15:41:41 - START SNAPSHOT
+15:41:42 - Got message [Original Sender: 3|Message ID: 50|Content: 997|Type: CC_ACK|Receiver: 0|Original Receiver: 0]
+15:41:42 - Received message: [Original Sender: 3|Message ID: 50|Content: 997|Type: CC_ACK|Receiver: 0|Original Receiver: 0]
+15:41:42 - [SNAPSHOT] Got an ACK message from node3
+15:41:42 - Got message [Original Sender: 1|Message ID: 50|Content: 1005|Type: CC_ACK|Receiver: 0|Original Receiver: 0]
+15:41:42 - Received message: [Original Sender: 1|Message ID: 50|Content: 1005|Type: CC_ACK|Receiver: 0|Original Receiver: 0]
+15:41:42 - [SNAPSHOT] Got an ACK message from node1
+15:41:42 - Got message [Original Sender: 2|Message ID: 25|Content: 1009|Type: CC_ACK|Receiver: 0|Original Receiver: 0]
+15:41:42 - Received message: [Original Sender: 2|Message ID: 25|Content: 1009|Type: CC_ACK|Receiver: 0|Original Receiver: 0]
+15:41:42 - [SNAPSHOT] Got an ACK message from node2
+15:41:45 - My info: [0|localhost|1100]
+15:41:45 - Neighbors:
+15:41:45 - 1 2 3 
+15:41:45 - Pausing for 20000 ms
+15:42:05 - Sending message [Original Sender: 0|Message ID: 80|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:05 - Pausing for 10000 ms
+15:42:06 - Got message [Original Sender: 2|Message ID: 26|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Received message: [Original Sender: 2|Message ID: 26|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 78|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 79|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 83|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:06 - Got message [Original Sender: 2|Message ID: 27|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Received message: [Original Sender: 2|Message ID: 27|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 81|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 82|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 86|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:06 - Got message [Original Sender: 2|Message ID: 28|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Received message: [Original Sender: 2|Message ID: 28|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 84|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 85|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 89|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:06 - Got message [Original Sender: 2|Message ID: 29|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Received message: [Original Sender: 2|Message ID: 29|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 87|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 88|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 94|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:06 - Got message [Original Sender: 2|Message ID: 30|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Received message: [Original Sender: 2|Message ID: 30|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:06 - Sending message [Original Sender: 0|Message ID: 90|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 92|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 95|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:07 - Got message [Original Sender: 2|Message ID: 31|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Received message: [Original Sender: 2|Message ID: 31|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 91|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 93|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 98|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:07 - Got message [Original Sender: 2|Message ID: 32|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Received message: [Original Sender: 2|Message ID: 32|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 96|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 97|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 101|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:07 - Got message [Original Sender: 2|Message ID: 33|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Received message: [Original Sender: 2|Message ID: 33|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 99|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 100|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 104|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:07 - Got message [Original Sender: 2|Message ID: 34|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Received message: [Original Sender: 2|Message ID: 34|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 102|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 103|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:07 - Sending message [Original Sender: 0|Message ID: 107|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:07 - Got message [Original Sender: 2|Message ID: 35|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:07 - Received message: [Original Sender: 2|Message ID: 35|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 105|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 106|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 110|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:08 - Got message [Original Sender: 2|Message ID: 36|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Received message: [Original Sender: 2|Message ID: 36|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 108|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 109|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 113|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:08 - Got message [Original Sender: 2|Message ID: 37|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Received message: [Original Sender: 2|Message ID: 37|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 111|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 112|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 116|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:08 - Got message [Original Sender: 2|Message ID: 38|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Received message: [Original Sender: 2|Message ID: 38|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 115|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 114|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 119|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:08 - Got message [Original Sender: 2|Message ID: 39|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Received message: [Original Sender: 2|Message ID: 39|Content: 5|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 117|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 118|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:08 - Sending message [Original Sender: 0|Message ID: 122|Content: 1|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:08 - Got message [Original Sender: 2|Message ID: 40|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:08 - Received message: [Original Sender: 2|Message ID: 40|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 121|Content: 1|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 120|Content: 1|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 125|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:09 - Got message [Original Sender: 2|Message ID: 41|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Received message: [Original Sender: 2|Message ID: 41|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 124|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 123|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 128|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:09 - Got message [Original Sender: 2|Message ID: 42|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Received message: [Original Sender: 2|Message ID: 42|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 131|Content: 4|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 127|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 126|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:09 - Got message [Original Sender: 2|Message ID: 43|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Received message: [Original Sender: 2|Message ID: 43|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 134|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 130|Content: 4|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 129|Content: 4|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:09 - Got message [Original Sender: 2|Message ID: 44|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Received message: [Original Sender: 2|Message ID: 44|Content: 4|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 137|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 133|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:09 - Sending message [Original Sender: 0|Message ID: 132|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:09 - Got message [Original Sender: 2|Message ID: 45|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:09 - Received message: [Original Sender: 2|Message ID: 45|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 140|Content: 3|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 136|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 135|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:10 - Got message [Original Sender: 2|Message ID: 46|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Received message: [Original Sender: 2|Message ID: 46|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 143|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 139|Content: 3|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 138|Content: 3|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:10 - Got message [Original Sender: 2|Message ID: 47|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Received message: [Original Sender: 2|Message ID: 47|Content: 3|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 146|Content: 2|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 142|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 141|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:10 - Got message [Original Sender: 2|Message ID: 48|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Received message: [Original Sender: 2|Message ID: 48|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 144|Content: 2|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 145|Content: 2|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 149|Content: 5|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:10 - Got message [Original Sender: 2|Message ID: 49|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Received message: [Original Sender: 2|Message ID: 49|Content: 1|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 147|Content: 5|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 152|Content: 5|Type: TRANSACTION|Receiver: 3|Original Receiver: 3]
+15:42:10 - Sending message [Original Sender: 0|Message ID: 148|Content: 5|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:11 - Got message [Original Sender: 2|Message ID: 50|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:11 - Received message: [Original Sender: 2|Message ID: 50|Content: 2|Type: TRANSACTION|Receiver: 0|Original Receiver: 0]
+15:42:11 - Sending message [Original Sender: 0|Message ID: 150|Content: 5|Type: TRANSACTION|Receiver: 1|Original Receiver: 1]
+15:42:11 - Sending message [Original Sender: 0|Message ID: 151|Content: 5|Type: TRANSACTION|Receiver: 2|Original Receiver: 2]
+15:42:15 - Stopping...

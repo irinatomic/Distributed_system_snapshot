@@ -32,13 +32,10 @@ public class MessageUtil {
 	public static Message readMessage(Socket socket) {
 		Message clientMessage = null;
 
-		AppConfig.timestampedStandardPrint("HERE ");
 		try {
 			ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-			AppConfig.timestampedStandardPrint("OIS: " + ois);
 			clientMessage = (Message) ois.readObject();
 
-			AppConfig.timestampedStandardPrint("ACK for " + clientMessage);
 			if (AppConfig.IS_FIFO) {
 				String response = "ACK";
 				ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
@@ -77,10 +74,9 @@ public class MessageUtil {
 		int receiverId = message.getOriginalReceiverInfo().id();
 		try {
 			if (isCCSnapshotMessage(message.getMessageType())) {
-				AppConfig.timestampedStandardPrint("ADDING MARKER: " + message.getMessageType() + " -> " + message.getReceiverInfo().id());
+				AppConfig.timestampedStandardPrint("Adding message to pending markers: " + message);
 				pendingMarkers.get(receiverId).put(message);
 			} else {
-				AppConfig.timestampedStandardPrint("ADDING MESSAG: " + message.getMessageType() + " -> " + message.getReceiverInfo().id());
 				pendingMessages.get(receiverId).put(message);
 			}
 		} catch (InterruptedException e) {

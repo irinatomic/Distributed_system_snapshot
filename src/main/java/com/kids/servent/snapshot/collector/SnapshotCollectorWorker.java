@@ -44,7 +44,7 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 
 	@Override
 	public void run() {
-		while(working) {
+		while(true) {
 			
 			// Not collecting yet - just sleep until we start actual work, or finish
 			while (!collecting.get()) {
@@ -56,9 +56,9 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 				if (!working) return;
 			}
 
-			AppConfig.timestampedStandardPrint("1");
 			snapshotStrategy.initiateSnapshot();
 
+			AppConfig.timestampedStandardPrint("START SNAPSHOT");
 			while (!snapshotStrategy.isSnapshotComplete()) {
 				try {
 					Thread.sleep(1000);
@@ -68,6 +68,7 @@ public class SnapshotCollectorWorker implements SnapshotCollector {
 				if (!working) return;
 			}
 
+			AppConfig.timestampedStandardPrint("END SNAPSHOT");
 			snapshotStrategy.processSnapshotEnding();
 			collecting.set(false);
 		}

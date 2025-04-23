@@ -22,6 +22,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import static com.kids.communication.message.MessageType.CC_RESUME;
+
 /**
  * Listens for incoming messages on a specified port and processes them using a thread pool.
  * It handles messages in a concurrent environment and integrates with a snapshot collector for distributed system snapshots.
@@ -56,7 +58,6 @@ public class SimpleServentListener implements Runnable, Cancellable {
 				if (AppConfig.IS_FIFO) {
 					Message clientMessage;
 
-					AppConfig.timestampedStandardPrint("Waiting for node " + AppConfig.myServentInfo.id() + " on port " + AppConfig.myServentInfo.listenerPort());
 					Socket clientSocket = listenerSocket.accept();
 					clientMessage = MessageUtil.readMessage(clientSocket);
 
@@ -70,13 +71,10 @@ public class SimpleServentListener implements Runnable, Cancellable {
 							messageHandler = new TransactionHandler(clientMessage);
 							break;
 						case CC_SNAPSHOT_REQUEST:
-							AppConfig.timestampedStandardPrint("Processing CC_SNAPSHOT_REQUEST in listener");
 							messageHandler = new CCSnapshotRequestHandler(clientMessage);
 							break;
 						case CC_ACK:
-							if (clientMessage.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id()) {
-								messageHandler = new CCAckHandler(clientMessage);
-							}
+							messageHandler = new CCAckHandler(clientMessage);
 							break;
 						case CC_RESUME:
 							messageHandler = new CCResumeHandler(clientMessage);

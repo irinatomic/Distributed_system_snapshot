@@ -30,8 +30,6 @@ public class TransactionHandler implements MessageHandler {
 			int amountNumber = MessageUtil.getAmountFromMessage(clientMessage);
 			if (amountNumber == -1) return;
 
-			AppConfig.timestampedStandardPrint("[VASKE 1] Got from " + clientMessage.getOriginalSenderInfo().id() + ": " + amountNumber);
-
 			if (bitcakeManager instanceof CCBitcakeManager) {
 				handleTransactionCC(amountNumber);
 			} else if (bitcakeManager instanceof ABBitcakeManager) {
@@ -39,17 +37,11 @@ public class TransactionHandler implements MessageHandler {
 			} else if (bitcakeManager instanceof AVBitcakeManager) {
 				handleTransactionAV(amountNumber);
 			}
-
-			AppConfig.timestampedStandardPrint("Transaction handler got: " + clientMessage);
 		}
 	}
 
 	private void handleTransactionCC(int amount) {
-		AppConfig.timestampedStandardPrint("[VASKE 2] Got from " + clientMessage.getOriginalSenderInfo().id() + ": " + amount);
-
 		CCSnapshotStrategy snapshotStrategy = (CCSnapshotStrategy) CausalBroadcast.getSnapshotStrategy();
-		AppConfig.timestampedStandardPrint("[VASKE 3] Mode " + snapshotStrategy.inSnapshotMode());
-
 		if (!snapshotStrategy.inSnapshotMode()) {
 			bitcakeManager.addSomeBitcakes(amount);
 			return;
