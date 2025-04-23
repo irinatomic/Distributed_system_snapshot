@@ -22,8 +22,6 @@ public class AVSnapshotRequestHandler implements MessageHandler {
         AVSnapshotStrategy snapshotStrategy = (AVSnapshotStrategy) CausalBroadcast.getSnapshotStrategy();
         snapshotStrategy.setInitiatorVectorClock(clientMessage.getSenderVectorClock());
 
-        snapshotStrategy.setInitiatorNodeId(clientMessage.getOriginalSenderInfo().id());
-
         AVBitcakeManager bitcakeManager = (AVBitcakeManager) BitcakeManagerInstance.getInstance();
         bitcakeManager.startSnapshotMode();
 

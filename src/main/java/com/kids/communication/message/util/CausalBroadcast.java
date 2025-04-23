@@ -113,37 +113,41 @@ public class CausalBroadcast {
                         // Update the vector clock for the message's original sender
                         incrementClock(pendingMessage.getOriginalSenderInfo().id());
 
-                        boolean added;
-                        switch (basicMessage.getMessageType()) {
-                            case TRANSACTION -> {
-                                if (basicMessage.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id())
-                                    executor.submit(new TransactionHandler(basicMessage));
-                            }
-                            case AB_SNAPSHOT_REQUEST -> {
-                                added = receivedAbRequest.add(basicMessage);
-                                if (added) executor.submit(new ABSnapshotRequestHandler(basicMessage));
-                            }
-                            case AB_SNAPSHOT_RESPONSE -> {
-                                if (basicMessage.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id())
-                                    executor.submit(new ABSnapshotResponseHandler(basicMessage, snapshotCollector));
-                            }
-                            case AV_SNAPSHOT_REQUEST -> {
-                                executor.submit(new AVSnapshotRequestHandler(basicMessage));
-                            }
-                            case AV_DONE -> {
-                                if (basicMessage.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id()) {
-                                    executor.submit(new AVDoneHandler(basicMessage));
-                                }
-                            }
-                            case AV_TERMINATE -> {
-                                executor.submit(new AVTerminateHandler(basicMessage));
-                            }
-                        }
-
+                        giveMessageToHandler(basicMessage);
                         iterator.remove();
                         break;
                     }
                 }
+            }
+        }
+    }
+
+    public static void giveMessageToHandler(Message message) {
+        boolean added;
+
+        switch (message.getMessageType()) {
+            case TRANSACTION -> {
+                if (message.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id())
+                    executor.submit(new TransactionHandler(message));
+            }
+            case AB_SNAPSHOT_REQUEST -> {
+                added = receivedAbRequest.add(message);
+                if (added) executor.submit(new ABSnapshotRequestHandler(message));
+            }
+            case AB_SNAPSHOT_RESPONSE -> {
+                if (message.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id())
+                    executor.submit(new ABSnapshotResponseHandler(message, snapshotCollector));
+            }
+            case AV_SNAPSHOT_REQUEST -> {
+                executor.submit(new AVSnapshotRequestHandler(message));
+            }
+            case AV_DONE -> {
+                if (message.getOriginalReceiverInfo().id() == AppConfig.myServentInfo.id()) {
+                    executor.submit(new AVDoneHandler(message));
+                }
+            }
+            case AV_TERMINATE -> {
+                executor.submit(new AVTerminateHandler(message));
             }
         }
     }

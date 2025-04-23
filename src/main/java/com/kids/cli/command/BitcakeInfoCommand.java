@@ -1,5 +1,6 @@
 package com.kids.cli.command;
 
+import com.kids.servent.config.AppConfig;
 import com.kids.servent.snapshot.collector.SnapshotCollector;
 import lombok.AllArgsConstructor;
 
@@ -15,6 +16,7 @@ public class BitcakeInfoCommand implements CLICommand {
 
 	@Override
 	public void execute(String args) {
+		AppConfig.timestampedStandardPrint("START BITCAKE INFO");
 		collector.startCollecting();
 	}
 }

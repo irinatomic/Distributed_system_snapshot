@@ -5,6 +5,8 @@ import com.kids.communication.message.MessageType;
 import com.kids.servent.Cancellable;
 import com.kids.servent.ServentInfo;
 import com.kids.servent.config.AppConfig;
+import com.kids.servent.snapshot.strategy.CCSnapshotStrategy;
+import com.kids.servent.snapshot.strategy.SnapshotStrategy;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
@@ -21,7 +23,8 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 public class FifoMessageSender implements Runnable, Cancellable {
 
-    private final int neighbor;
+    private final int neighbour;
+    private final SnapshotStrategy snapshotStrategy = CausalBroadcast.getSnapshotStrategy();
     private volatile boolean working = true;
 
     @Override
@@ -29,12 +32,21 @@ public class FifoMessageSender implements Runnable, Cancellable {
         while (working) {
             try {
                 // First check for high-priority marker/control messages
-                Message messageToSend = MessageUtil.pendingMarkers.get(neighbor).poll(200, TimeUnit.MILLISECONDS);
+                Message messageToSend = MessageUtil.pendingMarkers.get(neighbour).poll(200, TimeUnit.MILLISECONDS);
 
-                // If no control messages, check regular queue
+                // SnapshotMode = true -> we do not check the regular queue
+//                if (AppConfig.IS_FIFO) {
+//                    CCSnapshotStrategy snapshotStrategy = (CCSnapshotStrategy) this.snapshotStrategy;
+//                    if (snapshotStrategy.inSnapshotMode()) continue;
+//                }
+
+                // SnapshotMode = false -> we check the regular queue
                 if (messageToSend == null) {
-                    messageToSend = MessageUtil.pendingMessages.get(neighbor).poll(200, TimeUnit.MILLISECONDS);
+                    messageToSend = MessageUtil.pendingMessages.get(neighbour).poll(200, TimeUnit.MILLISECONDS);
                 }
+
+                AppConfig.timestampedStandardPrint("FIFO [" + neighbour + "] - markers: " + MessageUtil.pendingMarkers.get(neighbour).size());
+                AppConfig.timestampedStandardPrint("FIFO [" + neighbour + "] - messag: " + MessageUtil.pendingMessages.get(neighbour).size());
 
                 if (messageToSend == null) continue;
                 if (messageToSend.getMessageType() == MessageType.POISON) break;
@@ -45,19 +57,24 @@ public class FifoMessageSender implements Runnable, Cancellable {
 
                 ServentInfo receiverInfo = messageToSend.getReceiverInfo();
 
-                try (Socket sendSocket = new Socket(receiverInfo.ipAddress(), receiverInfo.listenerPort());
-                     ObjectOutputStream oos = new ObjectOutputStream(sendSocket.getOutputStream());
-                     ObjectInputStream ois = new ObjectInputStream(sendSocket.getInputStream())) {
+                AppConfig.timestampedStandardPrint("FIFO [" + neighbour + "] - sending message to " + receiverInfo);
+
+                try {
+                    Socket sendSocket = new Socket(receiverInfo.ipAddress(), receiverInfo.listenerPort());
+                    ObjectOutputStream oos = new ObjectOutputStream(sendSocket.getOutputStream());
+                    ObjectInputStream ois = new ObjectInputStream(sendSocket.getInputStream());
 
                     oos.writeObject(messageToSend);
                     oos.flush();
+                    messageToSend.sendEffect();
 
                     Object ack = ois.readObject();
                     if (!"ACK".equals(ack)) {
                         AppConfig.timestampedErrorPrint("Did not receive ACK from " + receiverInfo);
                     }
 
-                } catch (IOException | ClassNotFoundException e) {
+                    sendSocket.close();
+                } catch (IOException e) {
                     AppConfig.timestampedErrorPrint("Failed to send message to " + receiverInfo + ": " + e.getMessage());
                 }
 

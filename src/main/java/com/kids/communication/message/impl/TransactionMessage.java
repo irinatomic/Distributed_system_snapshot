@@ -3,6 +3,7 @@ package com.kids.communication.message.impl;
 import com.kids.servent.ServentInfo;
 import com.kids.servent.bitcake.BitcakeManager;
 import com.kids.communication.message.MessageType;
+import com.kids.servent.config.AppConfig;
 
 import java.io.Serial;
 import java.util.Map;

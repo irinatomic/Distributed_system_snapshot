@@ -15,12 +15,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class MessageUtil {
 
-	// for debugging purposes
+	// For debugging purposes
 	public static final boolean MESSAGE_UTIL_PRINTING = true;
-	
+
+	// Queues to send messages in FIFO order
 	public static Map<Integer, BlockingQueue<Message>> pendingMessages = new ConcurrentHashMap<>();
 	public static Map<Integer, BlockingQueue<Message>> pendingMarkers = new ConcurrentHashMap<>();
-	
+
 	public static void initializePendingMessages() {
 		for (Integer neighbor : AppConfig.myServentInfo.neighbors()) {
 			pendingMarkers.put(neighbor, new LinkedBlockingQueue<>());
@@ -30,11 +31,14 @@ public class MessageUtil {
 	
 	public static Message readMessage(Socket socket) {
 		Message clientMessage = null;
-			
+
+		AppConfig.timestampedStandardPrint("HERE ");
 		try {
 			ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+			AppConfig.timestampedStandardPrint("OIS: " + ois);
 			clientMessage = (Message) ois.readObject();
-			
+
+			AppConfig.timestampedStandardPrint("ACK for " + clientMessage);
 			if (AppConfig.IS_FIFO) {
 				String response = "ACK";
 				ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
@@ -73,8 +77,10 @@ public class MessageUtil {
 		int receiverId = message.getOriginalReceiverInfo().id();
 		try {
 			if (isCCSnapshotMessage(message.getMessageType())) {
+				AppConfig.timestampedStandardPrint("ADDING MARKER: " + message.getMessageType() + " -> " + message.getReceiverInfo().id());
 				pendingMarkers.get(receiverId).put(message);
 			} else {
+				AppConfig.timestampedStandardPrint("ADDING MESSAG: " + message.getMessageType() + " -> " + message.getReceiverInfo().id());
 				pendingMessages.get(receiverId).put(message);
 			}
 		} catch (InterruptedException e) {

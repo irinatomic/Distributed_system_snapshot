@@ -38,7 +38,7 @@ public class BasicMessage implements Message {
         this.originalSenderInfo = originalSenderInfo;
         this.originalReceiverInfo = originalReceiverInfo;
         this.receiverInfo = receiverInfo;
-        this.senderVectorClock = new ConcurrentHashMap<>(senderVectorClock);
+        this.senderVectorClock = senderVectorClock;
         this.routeList = new ArrayList<>();
         this.messageText = "";
 
@@ -50,7 +50,7 @@ public class BasicMessage implements Message {
         this.originalSenderInfo = originalSenderInfo;
         this.originalReceiverInfo = originalReceiverInfo;
         this.receiverInfo = receiverInfo;
-        this.senderVectorClock = new ConcurrentHashMap<>(senderVectorClock);
+        this.senderVectorClock = senderVectorClock;
         this.routeList = new ArrayList<>();
         this.messageText = messageText;
 

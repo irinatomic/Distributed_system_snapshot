@@ -8,12 +8,12 @@ import com.kids.communication.message.Message;
 import com.kids.communication.message.MessageType;
 import com.kids.communication.message.impl.ab.ABSnapshotResponseMessage;
 import com.kids.communication.message.util.MessageUtil;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ABSnapshotRequestHandler implements MessageHandler {
 
     private final Message clientMessage;

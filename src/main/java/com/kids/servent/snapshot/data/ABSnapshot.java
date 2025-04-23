@@ -1,4 +1,4 @@
-package com.kids.servent.snapshot;
+package com.kids.servent.snapshot.data;
 
 import com.kids.communication.message.Message;
 import lombok.AllArgsConstructor;

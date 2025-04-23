@@ -100,6 +100,9 @@ public class AppConfig {
 			snapshotType = "none";
 		}
 		switch (snapshotType) {
+		case "cc":
+			SNAPSHOT_TYPE = SnapshotType.COORD_CHECKPOINT;
+			break;
 		case "ab":
 			SNAPSHOT_TYPE = SnapshotType.ACHARYA_BADRINATH;
 			break;

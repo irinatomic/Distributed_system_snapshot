@@ -1,16 +1,14 @@
 package com.kids.communication.handler.impl;
 
 import com.kids.communication.message.util.MessageUtil;
-import com.kids.servent.bitcake.AVBitcakeManager;
-import com.kids.servent.bitcake.BitcakeManagerInstance;
+import com.kids.servent.bitcake.*;
 import com.kids.servent.config.AppConfig;
 import com.kids.communication.message.util.CausalBroadcast;
-import com.kids.servent.bitcake.BitcakeManager;
-import com.kids.servent.bitcake.ABBitcakeManager;
 import com.kids.communication.handler.MessageHandler;
 import com.kids.communication.message.Message;
 import com.kids.communication.message.MessageType;
 import com.kids.servent.snapshot.strategy.AVSnapshotStrategy;
+import com.kids.servent.snapshot.strategy.CCSnapshotStrategy;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
@@ -32,13 +30,37 @@ public class TransactionHandler implements MessageHandler {
 			int amountNumber = MessageUtil.getAmountFromMessage(clientMessage);
 			if (amountNumber == -1) return;
 
-			if (bitcakeManager instanceof ABBitcakeManager) {
+			AppConfig.timestampedStandardPrint("[VASKE 1] Got from " + clientMessage.getOriginalSenderInfo().id() + ": " + amountNumber);
+
+			if (bitcakeManager instanceof CCBitcakeManager) {
+				handleTransactionCC(amountNumber);
+			} else if (bitcakeManager instanceof ABBitcakeManager) {
 				handleTransactionAB(amountNumber);
 			} else if (bitcakeManager instanceof AVBitcakeManager) {
 				handleTransactionAV(amountNumber);
 			}
 
 			AppConfig.timestampedStandardPrint("Transaction handler got: " + clientMessage);
+		}
+	}
+
+	private void handleTransactionCC(int amount) {
+		AppConfig.timestampedStandardPrint("[VASKE 2] Got from " + clientMessage.getOriginalSenderInfo().id() + ": " + amount);
+
+		CCSnapshotStrategy snapshotStrategy = (CCSnapshotStrategy) CausalBroadcast.getSnapshotStrategy();
+		AppConfig.timestampedStandardPrint("[VASKE 3] Mode " + snapshotStrategy.inSnapshotMode());
+
+		if (!snapshotStrategy.inSnapshotMode()) {
+			bitcakeManager.addSomeBitcakes(amount);
+			return;
+		}
+
+		try {
+			int receiverId = clientMessage.getReceiverInfo().id();
+			MessageUtil.pendingMessages.get(receiverId).put(clientMessage);
+		} catch (InterruptedException e) {
+			AppConfig.timestampedErrorPrint("Transaction handler interrupted while waiting for pending transactions");
+			Thread.currentThread().interrupt();
 		}
 	}
 

@@ -18,6 +18,8 @@ public class BitcakeManagerInstance {
                 instance = new ABBitcakeManager(); break;
             case ALAGAR_VENKATESAN:
                 instance = new AVBitcakeManager(); break;
+            case COORD_CHECKPOINT:
+                instance = new CCBitcakeManager(); break;
             default:
                 throw new IllegalArgumentException("Unsupported snapshot type: " + snapshotType);
         }

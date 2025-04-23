@@ -35,40 +35,61 @@ public class TransactionBurstCommand implements CLICommand {
 		@Override
 		public void run() {
 			for (int i = 0; i < TRANSACTION_COUNT; i++) {
-				ServentInfo receiverInfo = AppConfig.getInfoById((int) (Math.random() * AppConfig.getServentCount()));
-
-				// Choose a random receiver that is not us
-				while (receiverInfo.id() == AppConfig.myServentInfo.id()) {
-					receiverInfo = AppConfig.getInfoById((int) (Math.random() * AppConfig.getServentCount()));
-				}
-
 				int amount = 1 + (int) (Math.random() * MAX_TRANSFER_AMOUNT);
 
-				Message transaction;
-				synchronized (lock) {
-					Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcast.getVectorClock());
+				if (AppConfig.IS_FIFO) {
+					sendMessageFifo(amount);
+				} else {
+					sendMessageNotFifo(amount);
+				}
+			}
+		}
 
-					transaction = new TransactionMessage(
-							AppConfig.myServentInfo,
-							receiverInfo,
-							null,
-							amount,
-							bitcakeManager,
-							vectorClock
-					);
+		private void sendMessageFifo(int amount) {
+			for (int neighbor : AppConfig.myServentInfo.neighbors()) {
+				ServentInfo neighborInfo = AppConfig.getInfoById(neighbor);
+				Message transactionMessage = new TransactionMessage(
+						AppConfig.myServentInfo,
+						neighborInfo,
+						neighborInfo,
+						amount,
+						bitcakeManager,
+						null
+				);
+				MessageUtil.sendMessage(transactionMessage);
+			}
+		}
 
-					if (bitcakeManager instanceof ABBitcakeManager) {
-						CausalBroadcast.addSentMessage(transaction);
-					}
+		private void sendMessageNotFifo(int amount) {
+			// Choose a random receiver that is not us
+			ServentInfo receiverInfo = AppConfig.getInfoById((int) (Math.random() * AppConfig.getServentCount()));
+			while (receiverInfo.id() == AppConfig.myServentInfo.id()) {
+				receiverInfo = AppConfig.getInfoById((int) (Math.random() * AppConfig.getServentCount()));
+			}
 
-					// Deduct the amount and send the message
-					transaction.sendEffect();
-					CausalBroadcast.causalClockIncrement(transaction);
+			Message transaction;
+			synchronized (lock) {
+				Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcast.getVectorClock());
+				transaction = new TransactionMessage(
+						AppConfig.myServentInfo,
+						receiverInfo,
+						null,
+						amount,
+						bitcakeManager,
+						vectorClock
+				);
+
+				if (bitcakeManager instanceof ABBitcakeManager) {
+					CausalBroadcast.addSentMessage(transaction);
 				}
 
-				AppConfig.myServentInfo.neighbors()
-						.forEach(neighbor -> MessageUtil.sendMessage(transaction.changeReceiver(neighbor).makeMeASender()));
+				// Deduct the amount and send the message
+				transaction.sendEffect();
+				CausalBroadcast.causalClockIncrement(transaction);
 			}
+
+			AppConfig.myServentInfo.neighbors()
+					.forEach(neighbor -> MessageUtil.sendMessage(transaction.changeReceiver(neighbor).makeMeASender()));
 		}
 	}
 	

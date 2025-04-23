@@ -19,8 +19,6 @@ public class AVSnapshotStrategy implements SnapshotStrategy {
     @Getter @Setter
     private Map<Integer, Integer> initiatorVectorClock;
     @Getter @Setter
-    private Integer initiatorNodeId;
-    @Getter @Setter
     private AtomicInteger doneMessagesCounter;
     private final AVBitcakeManager bitcakeManager;
 
@@ -43,7 +41,6 @@ public class AVSnapshotStrategy implements SnapshotStrategy {
 
         bitcakeManager.startSnapshotMode();
         initiatorVectorClock = new ConcurrentHashMap<>(CausalBroadcast.getVectorClock());
-        initiatorNodeId = AppConfig.myServentInfo.id();
     }
 
     @Override
@@ -57,7 +54,7 @@ public class AVSnapshotStrategy implements SnapshotStrategy {
      */
     @Override
     public void processSnapshotEnding() {
-        AppConfig.timestampedStandardPrint("[DEBUG] PROCESS SNAPSHOT ENDING ");
+        AppConfig.timestampedStandardPrint("[SNAPSHOT] Received DONE from all nodes. Ending snapshot.");
 
         // Broadcast TERMINATE message
         Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcast.getVectorClock());
@@ -69,10 +66,9 @@ public class AVSnapshotStrategy implements SnapshotStrategy {
                 vectorClock
         );
 
-        for (int neighbor : AppConfig.myServentInfo.neighbors()) {
-            terminateMessage = terminateMessage.changeReceiver(neighbor);
-            MessageUtil.sendMessage(terminateMessage);
-        }
+        AppConfig.myServentInfo.neighbors().stream()
+                .map(terminateMessage::changeReceiver)
+                .forEach(MessageUtil::sendMessage);
 
         CausalBroadcast.addPendingMessage(terminateMessage);
         CausalBroadcast.checkPendingMessages();
@@ -85,11 +81,10 @@ public class AVSnapshotStrategy implements SnapshotStrategy {
 
     private void clearSnapshotData() {
         initiatorVectorClock = null;
-        initiatorNodeId = null;
         doneMessagesCounter.set(0);
     }
 
     public boolean isSnapshotInProgress() {
-        return initiatorVectorClock != null && initiatorNodeId != null;
+        return initiatorVectorClock != null;
     }
 }

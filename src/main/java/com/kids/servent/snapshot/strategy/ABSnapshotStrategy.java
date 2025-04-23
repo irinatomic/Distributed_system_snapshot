@@ -3,7 +3,7 @@ package com.kids.servent.snapshot.strategy;
 import com.kids.servent.config.AppConfig;
 import com.kids.communication.message.util.CausalBroadcast;
 import com.kids.servent.bitcake.ABBitcakeManager;
-import com.kids.servent.snapshot.ABSnapshot;
+import com.kids.servent.snapshot.data.ABSnapshot;
 import com.kids.communication.message.Message;
 import com.kids.communication.message.impl.ab.ABSnapshotRequestMessage;
 import com.kids.communication.message.util.MessageUtil;
@@ -24,11 +24,15 @@ public class ABSnapshotStrategy implements SnapshotStrategy {
 
     @Override
     public void initiateSnapshot() {
-        // Create SNAPSHOT_REQUEST message
+        // // Send SNAPSHOT_REQUEST message to all neighbours
         Map<Integer, Integer> vectorClock = new ConcurrentHashMap<>(CausalBroadcast.getVectorClock());
-        Message request = new ABSnapshotRequestMessage(AppConfig.myServentInfo, null, null, vectorClock);
+        Message request = new ABSnapshotRequestMessage(
+                AppConfig.myServentInfo,
+                null,
+                null,
+                vectorClock
+        );
 
-        // Send SNAPSHOT_REQUEST message to all neighbors
         for (Integer neighbor : AppConfig.myServentInfo.neighbors()) {
             Message neighborRequest = request.changeReceiver(neighbor);
             MessageUtil.sendMessage(neighborRequest);

@@ -38,10 +38,10 @@ public class ServentMain {
 		
 		int serventId = getServentId(args);
 		int portNumber = gerServentPortNumber(serventId);
-		
-		MessageUtil.initializePendingMessages();
-		
+
 		AppConfig.timestampedStandardPrint("Starting servent " + AppConfig.myServentInfo);
+
+		MessageUtil.initializePendingMessages();
 
 		// BitcakeManager
 		BitcakeManagerInstance.initialize(AppConfig.SNAPSHOT_TYPE);
