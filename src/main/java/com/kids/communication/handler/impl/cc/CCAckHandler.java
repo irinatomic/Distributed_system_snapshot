@@ -32,15 +32,25 @@ public class CCAckHandler implements MessageHandler {
         if (AppConfig.myServentInfo.id() == snapshotStrategy.getSnapshotInitiatorId()) {
             AppConfig.timestampedStandardPrint("[SNAPSHOT] Got an ACK message from node" + originalSenderId);
             CCSnapshot snapshot =  new CCSnapshot(
-                    originalSenderId,
+                    response.getNodeId(),
                     response.getAmount()
             );
             snapshotStrategy.addSnapshot(snapshot);
-        } else {
-            AppConfig.myServentInfo.neighbors().stream()
-                    .filter(neighbor -> neighbor != response.getOriginalSenderInfo().id())
-                    .map(response::changeReceiver)
-                    .forEach(MessageUtil::sendMessage);
+            return;
+        }
+
+        AppConfig.timestampedStandardPrint("[SNAPSHOT] Forwarding ACK to all neighbours except the original sender: " + originalSenderId);
+        for (Integer neighbour : AppConfig.myServentInfo.neighbors()) {
+            if (neighbour != response.getOriginalSenderInfo().id()) {
+                CCAckMessage forwardMessage = new CCAckMessage(
+                        AppConfig.myServentInfo,
+                        AppConfig.getInfoById(neighbour),
+                        response.getAmount(),
+                        response.getNodeId()
+                );
+                MessageUtil.sendMessage(forwardMessage);
+                AppConfig.timestampedStandardPrint("[SNAPSHOT] Forwarding ACK to node" + neighbour + " should reach initiator node" + originalSenderId);
+            }
         }
     }
 }

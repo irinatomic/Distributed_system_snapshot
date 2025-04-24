@@ -6,7 +6,6 @@ import com.kids.servent.Cancellable;
 import com.kids.servent.ServentInfo;
 import com.kids.servent.config.AppConfig;
 import com.kids.servent.snapshot.strategy.CCSnapshotStrategy;
-import com.kids.servent.snapshot.strategy.SnapshotStrategy;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
@@ -28,14 +27,17 @@ public class FifoMessageSender implements Runnable, Cancellable {
 
     @Override
     public void run() {
+        CCSnapshotStrategy snapshotStrategy = (CCSnapshotStrategy) CausalBroadcast.getSnapshotStrategy();
+        Message messageToSend;
+
         while (working) {
             try {
-                // First check for high-priority marker/control messages
-                Message messageToSend = MessageUtil.pendingMarkers.get(neighbour).poll(200, TimeUnit.MILLISECONDS);
+                messageToSend = MessageUtil.pendingMarkers.get(neighbour).poll(1000, TimeUnit.MILLISECONDS);
 
-                // We check the regular queue
-                if (messageToSend == null) {
-                    messageToSend = MessageUtil.pendingMessages.get(neighbour).poll(200, TimeUnit.MILLISECONDS);
+                if (!snapshotStrategy.inSnapshotMode()) {
+                    if (messageToSend == null) {
+                        messageToSend = MessageUtil.pendingMessages.get(neighbour).poll(1000, TimeUnit.MILLISECONDS);
+                    }
                 }
 
                 if (messageToSend == null) continue;
@@ -66,10 +68,6 @@ public class FifoMessageSender implements Runnable, Cancellable {
                     AppConfig.timestampedErrorPrint("Failed to send message to " + receiverInfo + ": " + e.getMessage());
                 }
 
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt(); // Restore interrupted status
-                AppConfig.timestampedErrorPrint("Message sender thread interrupted.");
-                break;
             } catch (Exception e) {
                 AppConfig.timestampedErrorPrint("Unexpected error in FifoMessageSender: " + e.getMessage());
             }

@@ -22,8 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static com.kids.communication.message.MessageType.CC_RESUME;
-
 /**
  * Listens for incoming messages on a specified port and processes them using a thread pool.
  * It handles messages in a concurrent environment and integrates with a snapshot collector for distributed system snapshots.

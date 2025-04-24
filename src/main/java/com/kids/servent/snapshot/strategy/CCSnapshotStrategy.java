@@ -87,8 +87,9 @@ public class CCSnapshotStrategy implements SnapshotStrategy {
         snapshotInitiatorId = AppConfig.myServentInfo.id();
     }
 
-    public void startSnapshotModeNonInitiator() {
+    public void startSnapshotModeNonInitiator(int snapshotInitiatorId) {
         snapshotMode.set(true);
+        this.snapshotInitiatorId = snapshotInitiatorId;
     }
 
     /**

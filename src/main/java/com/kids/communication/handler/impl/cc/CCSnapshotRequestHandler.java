@@ -6,11 +6,8 @@ import com.kids.communication.message.impl.cc.CCAckMessage;
 import com.kids.communication.message.impl.cc.CCSnapshotRequestMessage;
 import com.kids.communication.message.util.CausalBroadcast;
 import com.kids.communication.message.util.MessageUtil;
-import com.kids.servent.bitcake.BitcakeManager;
 import com.kids.servent.bitcake.BitcakeManagerInstance;
-import com.kids.servent.bitcake.CCBitcakeManager;
 import com.kids.servent.config.AppConfig;
-import com.kids.servent.snapshot.strategy.AVSnapshotStrategy;
 import com.kids.servent.snapshot.strategy.CCSnapshotStrategy;
 import lombok.AllArgsConstructor;
 
@@ -36,21 +33,8 @@ public class CCSnapshotRequestHandler implements MessageHandler {
         }
 
         // Start snapshot mode
-        snapshotStrategy.startSnapshotModeNonInitiator();
+        snapshotStrategy.startSnapshotModeNonInitiator(initiatorId);
         AppConfig.timestampedStandardPrint("[SNAPSHOT] Received snapshot request from: " + initiatorId);
-
-        // Send ACK
-        int amount = BitcakeManagerInstance.getInstance().getCurrentBitcakeAmount();
-        for (Integer neighbor : AppConfig.myServentInfo.neighbors()) {
-            Message ackMessage = new CCAckMessage(
-                    AppConfig.myServentInfo,
-                    AppConfig.getInfoById(initiatorId),
-                    AppConfig.getInfoById(neighbor),
-                    amount
-            );
-            MessageUtil.sendMessage(ackMessage);
-            AppConfig.timestampedStandardPrint("[SNAPSHOT] Sending ACK to node" + neighbor + " should reach initiator node" + initiatorId);
-        }
 
         // Forward to neighbours
         for(Integer neighbour : AppConfig.myServentInfo.neighbors()) {
@@ -62,6 +46,19 @@ public class CCSnapshotRequestHandler implements MessageHandler {
                 );
                 MessageUtil.sendMessage(forwardMessage);
             }
+        }
+
+        // Send ACK
+        int amount = BitcakeManagerInstance.getInstance().getCurrentBitcakeAmount();
+        for (Integer neighbor : AppConfig.myServentInfo.neighbors()) {
+            Message ackMessage = new CCAckMessage(
+                    AppConfig.myServentInfo,
+                    AppConfig.getInfoById(neighbor),
+                    amount,
+                    AppConfig.myServentInfo.id()
+            );
+            MessageUtil.sendMessage(ackMessage);
+            AppConfig.timestampedStandardPrint("[SNAPSHOT] Sending ACK to node" + neighbor + " should reach initiator node" + initiatorId);
         }
     }
 }
