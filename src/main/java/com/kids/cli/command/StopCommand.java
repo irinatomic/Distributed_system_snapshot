@@ -31,12 +31,12 @@ public class StopCommand implements CLICommand {
 
 	@Override
 	public void execute(String args) {
-		AppConfig.timestampedStandardPrint("Stopping...");
 		parser.stop();
 		listener.stop();
 		for (FifoMessageSender senderWorker : senderThreads) {
 			senderWorker.stop();
 		}
 		snapshotCollector.stop();
+		AppConfig.timestampedStandardPrint("Stopping...");
 	}
 }

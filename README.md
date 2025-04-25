@@ -17,8 +17,33 @@ Algorithms:
 |-------------------------|------------------------|-------------------------------------|-------------------------------------|
 | FIFO system             | Yes                    | No                                  | No                                  |
 | Snapshot included       | Amount of bitcakes     | Amount of bitcakes + channels state | Amount of bitcakes + channels state |
-| Who prints the snapshot | ?                      | Node initiator                      | Every node                          |
+| Who prints the snapshot | Every node             | Node initiator                      | Every node                          |
 
+## Coordinated Checkpoint
+**Each node keeps:**
+- Number of bitcakes
+
+**Message Types:**
+- `TRANSACTION`: number of bitcakes
+- `SNAPSHOT_REQ`: node id of initiator
+- `ACK`: state of node
+- `RESUME`: empty message
+
+**Initiator's Perspective**
+1. Sends a `SNAPSHOT_REQ` message and records its state
+2. Waits for `ACK` messages from all other nodes. White waiting:
+    - **Receiving**: puts incoming messages in a buffer
+    - **Sending**: pauses sending
+3. Sends a `RESUME` message to everyone 
+4. Prints all the states
+
+**Non-initiator's Perspective**
+1. Upon receiving a `SNAPSHOT_REQ` message:
+   - Sends an `ACK` message to the initiator with its state
+   - Forwards the snapshot request to all neighbours
+2. Waits for the `RESUME` message from the initiator. While waiting
+    - **Receiving**: buffers all incoming messages
+    - **Sending**: pauses sending
 
 ## Acharya-Badrinath
 **Each node keeps:**
